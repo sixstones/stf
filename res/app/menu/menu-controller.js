@@ -1,5 +1,7 @@
 module.exports = function MenuCtrl($scope, $rootScope, SettingsService,
-  $location) {
+  $location, UserService) {
+
+  $scope.username = UserService.currentUser.name
 
   SettingsService.bind($scope, {
     target: 'lastUsedDevice'

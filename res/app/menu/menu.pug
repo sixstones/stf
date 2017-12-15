@@ -19,6 +19,12 @@
           button(type='button', ng-model='$root.platform', uib-btn-radio="'native'", translate).btn.btn-sm.btn-default-outline Native
 
       li(ng-show='!$root.basicMode')
+        a(ng-href='/#!/user')
+          i.fa.fa-user.fa-fw
+          | {{ "User Profile" | translate }}
+        a(ng-href='/app/logout')
+          i.fa.fa-sign-out.fa-fw
+          | {{ "Logout" | translate }}
         a(ng-href='/#!/help', accesskey='6')
           i.fa.fa-question-circle.fa-fw
           | {{ "Help" | translate }}

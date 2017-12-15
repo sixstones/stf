@@ -1,1 +1,59 @@
-h1 User
+.row.unselectable(ng-controller='UserProfileCtrl')
+  .col-md-12
+    .widget-container(style="padding-top:60px")
+      .row
+        .col-md-6
+          .row
+            .col-md-offset-4.col-md-6
+              .media
+                .media-left.media-middle
+                  i.fa.fa-user.fa-2x
+                .media-body
+                  h3.media-heading.text-muted(ng-bind='user.name')
+              .media
+                .media-left.media-middle
+                  i.fa.fa-envelope.fa-2x
+                .media-body
+                  h3.media-heading.text-muted(ng-bind='user.email')
+              .media
+                .media-left.media-middle
+                  i.fa.fa-lock.fa-2x
+                .media-body
+                  button(ng-click='toggleChangePassword()').btn.btn-sm.btn-warning 修改密码
+        .col-md-6(ng-show='toChangePassWd')
+          .row
+            .col-md-5
+              form(name='changePasswd',novalidate, ng-submit='changePassword()')
+                .alert.alert-success(ng-show='success')
+                  span 修改成功
+                .alert.alert-danger(ng-show='error')
+                  span(ng-show='error.$invalid')  {{ error.$message }}
+                  span(ng-show='error.$server')  {{ error.$message }}
+
+                .form-group
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-lock
+                    input.form-control(ng-model='oldpasswd', name='oldpasswd', required, type='password', placeholder='旧密码',
+                    autocorrect='off', autocapitalize='off', spellcheck='false')
+                  .alert.alert-warning(ng-show='oldpasswd.$dirty && oldpasswd.$invalid')
+                    span 请输入你的密码
+
+                .form-group
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-lock
+                    input.form-control(ng-model='newpasswd', name='newpasswd', required, type='password', placeholder='新密码',
+                    autocorrect='off', autocapitalize='off', spellcheck='false')
+                  .alert.alert-warning(ng-show='newpasswd.$dirty && newpasswd.$invalid')
+                    span 请输入你的密码
+
+                .form-group
+                  .input-group
+                    span.input-group-addon
+                      i.fa.fa-lock
+                    input.form-control(ng-model='renewpasswd', name='renewpasswd', required, type='password', placeholder='确认密码',
+                    autocorrect='off', autocapitalize='off', spellcheck='false')
+                  .alert.alert-warning(ng-show='renewpasswd.$dirty && renewpasswd.$invalid')
+                    span 请输入你的密码
+                input.btn.btn-primary.btn-block(type='submit', value='确认修改')

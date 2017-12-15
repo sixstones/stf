@@ -3,11 +3,11 @@
     a(href='./')
       img(width='190', height='90', src='/static/logo/exports/qbao.png', title='Qbao-STF')
 
-    form(name='signin', novalidate, ng-submit='submit()')
+    form(name='signin', novalidate, ng-submit='registe()')
       .alert.alert-danger(ng-show='error')
         span(ng-show='error.$invalid')  参数校验失败
-        span(ng-show='error.$qbaoError') {{ message }}
         span(ng-show='error.$server') 服务器异常，请查看日志
+        span(ng-show='error.$qbaoError') {{ message }}
 
       .form-group
         .input-group
@@ -16,7 +16,7 @@
           input.form-control(ng-model='username', name='username', required, type='text', placeholder='用户名',
           autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='section-login username')
         .alert.alert-warning(ng-show='signin.username.$dirty && signin.username.$invalid')
-          span 请输入用户名
+          span 请输入你的用户名
 
       .form-group
         .input-group
@@ -25,8 +25,8 @@
           input.form-control(ng-model='email', name='email', required, type='email', placeholder='邮箱',
           autocorrect='off', autocapitalize='off', spellcheck='false', autocomplete='section-login email')
         .alert.alert-warning(ng-show='signin.email.$dirty && signin.email.$invalid')
-          span(ng-show='signin.email.$error.email') 请输入正确邮箱地址
-          span(ng-show='signin.email.$error.required') 请输入邮箱地址
+          span(ng-show='signin.email.$error.email') 请输入正确的邮箱地址
+          span(ng-show='signin.email.$error.required') 请输入你的邮箱
       .form-group
         .input-group
           span.input-group-addon
@@ -35,6 +35,13 @@
           autocorrect='off', autocapitalize='off', spellcheck='false')
         .alert.alert-warning(ng-show='signin.passwd.$dirty && signin.passwd.$invalid')
           span 请输入你的密码
+      .form-group
+        .input-group
+          span.input-group-addon
+            i.fa.fa-lock
+          input.form-control(ng-model='repasswd', name='repasswd', required, type='password', placeholder='确认密码',
+          autocorrect='off', autocapitalize='off', spellcheck='false')
+        .alert.alert-warning(ng-show='signin.repasswd.$dirty && signin.repasswd.$invalid')
+          span 请再次输入你的密码
 
-      input.btn.btn-lg.btn-primary.btn-block(type='submit', value='登录')
-      input.btn.btn-lg.btn-success.btn-block(type='button', value='注册',ng-click='toRegiste()')
+      input.btn.btn-lg.btn-primary.btn-block(type='submit', value='注册')

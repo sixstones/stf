@@ -12,7 +12,7 @@ module.exports =
     }
 
     hotkeys.add({
-      combo: 'up up down down left right left right enter',
+      combo: 'space+a+d',
       callback: toggleAdminMode
     })
   }

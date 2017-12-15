@@ -6,5 +6,8 @@ module.exports = angular.module('stf.signin', [])
       .when('/auth/mock/', {
         template: require('./signin.pug')
       })
+      .when('/auth/registe/', {
+        template: require('./registe.pug')
+      })
   })
   .controller('SignInCtrl', require('./signin-controller'))
