@@ -3,7 +3,6 @@
 1. centos 7
 2. nginx v1.13.7
 3. node v8.9.1
-4. [qbao_stf v1.0](https://github.com/sixstones/qbao_stf.git)
 ## 部署方式
 ### 1. 自定义系统服务，共14个，其中部分模版服务可同时运行多个
 * stf-api.service
