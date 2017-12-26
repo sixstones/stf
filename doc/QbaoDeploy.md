@@ -14,7 +14,7 @@ Description=STF api
 [Service]
 TimeoutStartSec=0
 Restart=always
-ExecStart=/opt/node/bin/stf api --port 7106 --secret kittykat --connect-sub tcp://stf.qbao.com:7113  --connect-push tcp://stf.qbao.com:7111
+ExecStart=/opt/node/bin/stf api --port 7106 --secret kittykat --connect-sub tcp://stf.qbao.com:7111  --connect-push tcp://stf.qbao.com:7113
 ExecStop=kill -9 `ps -ef | grep 'stf api'|grep -v grep | tr -s ' ' | awk -F' ' '{print $2}'`
 ````
 * stf-app.service
