@@ -1,8 +1,20 @@
-module.exports = function SignInCtrl($scope, $http) {
+module.exports = function SignInCtrl($scope, $http, $interval) {
   $scope.error = null
-
   $scope.toRegiste = function() {
     location.replace('/auth/registe/')
+  }
+
+  $scope.timeLeft = 5
+
+  $scope.startTimeCount = function() {
+    $interval(function() {
+      $scope.timeLeft --
+    }, 1000, $scope.timeLeft)
+      .then(function() {
+        if($scope.timeLeft < 1) {
+          location.replace('/auth/mock/')
+        }
+      })
   }
 
   $scope.registe = function() {
@@ -16,7 +28,8 @@ module.exports = function SignInCtrl($scope, $http) {
     $http.post('/auth/api/v1/regist', data)
       .success(function(response) {
         $scope.error = null
-        location.replace(response.redirect)
+        $scope.success = true
+        $scope.startTimeCount()
     })
       .error(function(response) {
         switch (response.error) {

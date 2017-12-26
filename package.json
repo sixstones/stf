@@ -33,7 +33,6 @@
     "prepublish": "bower install && not-in-install && gulp build || in-install"
   },
   "dependencies": {
-    "@slack/client": "^3.5.4",
     "adbkit": "^2.9.2",
     "adbkit-apkreader": "^2.1.2",
     "adbkit-monkey": "^1.0.1",
@@ -65,6 +64,8 @@
     "minimatch": "^3.0.3",
     "minitouch-prebuilt": "^1.0.0",
     "my-local-ip": "^1.0.0",
+    "nodemailer": "^4.4.1",
+    "nodemailer-smtp-transport": "^2.7.4",
     "openid": "^2.0.1",
     "passport": "^0.3.2",
     "passport-oauth2": "^1.1.2",

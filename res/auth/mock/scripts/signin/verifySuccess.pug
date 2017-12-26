@@ -1,0 +1,8 @@
+.login2(ng-controller='VerifyCtrl')
+  .login-wrapper
+    a(href='./')
+      img(width='190', height='90', src='/static/logo/exports/qbao.png', title='Qbao-STF')
+
+    form()
+      .alert.alert-success
+        span(ng-init="startTimeCount()") 恭喜你，验证通过，{{ timeLeft }} 秒后跳转登录界面

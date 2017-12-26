@@ -8,6 +8,8 @@
         span(ng-show='error.$invalid')  参数校验失败
         span(ng-show='error.$server') 服务器异常，请查看日志
         span(ng-show='error.$qbaoError') {{ message }}
+      .alert.alert-success(ng-show='success')
+        span 恭喜你！注册成功，请登陆注册邮箱验证，{{ timeLeft }} 秒后跳转登录界面
 
       .form-group
         .input-group
